@@ -1,0 +1,75 @@
+{
+  "build": {
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev",
+    "devPath": "http://localhost:1420",
+    "distDir": "../app/dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "NetSentinel",
+    "version": "2.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "fs": {
+        "all": true,
+        "scope": ["$APPDATA/**", "$LOCALAPPDATA/**"]
+      },
+      "path": {
+        "all": true
+      },
+      "process": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "Utility",
+      "copyright": "© 2023 System Architect",
+      "externalBin": [],
+      "icon": [
+        "icons/icon.ico",
+        "icons/icon.png",
+        "icons/icon-32x32.png",
+        "icons/icon-128x128.png",
+        "icons/icon-128x128@2x.png"
+      ],
+      "identifier": "com.netsentinel.desktop",
+      "longDescription": "Silent Guardian, Visible Control - Kernel-level home network privacy defense tool",
+      "resources": [],
+      "shortDescription": "Network Privacy Defense",
+      "targets": ["msi", "nsis"],
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' ipc: http://ipc.localhost"
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 800,
+        "resizable": true,
+        "title": "NetSentinel - Silent Guardian, Visible Control",
+        "width": 1200,
+        "minWidth": 1000,
+        "minHeight": 700,
+        "decorations": true,
+        "transparent": false,
+        "center": true
+      }
+    ]
+  }
+}
