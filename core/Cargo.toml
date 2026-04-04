@@ -7,13 +7,24 @@ description = "Kernel-level home network privacy defense core service"
 license = "MIT"
 
 [dependencies]
-# Windows API
+# Windows API - Full support for process and network operations
 windows = { version = "0.52", features = [
     "Win32_Foundation",
     "Win32_NetworkManagement_WindowsFilteringPlatform",
     "Win32_NetworkManagement_IpHelper",
     "Win32_System_Threading",
     "Win32_Security",
+    "Win32_System_Diagnostics_ToolHelp",
+    "Win32_System_ProcessStatus",
+]}
+
+# Windows API legacy support (for winapi in process.rs)
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = [
+    "processthreadsapi",
+    "handleapi",
+    "winnt",
+    "tlhelp32",
 ]}
 
 # Async runtime
@@ -41,6 +52,12 @@ config = "0.14"
 # HMAC for IPC security
 hmac = "0.12"
 sha2 = "0.10"
+
+# UUID generation
+uuid = { version = "1.6", features = ["v4"] }
+
+# Random number generation for filter IDs
+rand = "0.8"
 
 [dev-dependencies]
 criterion = "0.5"

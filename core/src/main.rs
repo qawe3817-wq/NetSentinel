@@ -6,6 +6,7 @@
 //! - UI Layer (React/TypeScript) <--IPC--> Core Service (Rust)
 
 mod wfp;
+mod wfp_native;
 mod process;
 mod rules;
 mod ipc;
